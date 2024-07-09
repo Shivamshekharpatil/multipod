@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/select"
 import { cn } from "@/lib/utils"
 
+const voiceCategories = ['alloy', 'shimmer', 'nova', 'echo', 'fable', 'onyx'];
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -63,7 +64,7 @@ const CreatePodcast = () => {
             <FormItem className="flex flex-col gap-2.5">
               <FormLabel className="text-16 font-bold text-white-1">Username</FormLabel>
               <FormControl>
-                <Input className="input-class focus-visible:ring-blue-1" 
+                <Input className="input-class focus-visible:ring-blue-500" 
                 placeholder="MultipodAI Podcast" {...field} />
               </FormControl>
               <FormDescription>
@@ -85,10 +86,14 @@ const CreatePodcast = () => {
             <SelectValue placeholder="Choose AI Voice" 
             className="placeholder:text-gray-1" />
             </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="light">Light</SelectItem>
-            <SelectItem value="dark">Dark</SelectItem>
-            <SelectItem value="system">System</SelectItem>
+          <SelectContent className="text-16 border-none bg-black-1 font-bold
+          text-white-1 focus:ring-blue-500">
+            {voiceCategories.map((category) => (
+              <SelectItem key={category} value={category} className="capitalize 
+              focus:bg-blue-500">
+                {category}
+              </SelectItem>
+            ))}
             </SelectContent>
           </Select>
 
