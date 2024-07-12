@@ -6,13 +6,15 @@ import { Button } from './ui/button'
 import { Loader } from 'lucide-react'
 
 const useGeneratePodcast = (props: GeneratePodcastProps) => {
-    //logic for podcast generate
+    const [isGenerating, setIsGenerating] = useState(false);
 
+    const generatePodcast = async () => {
+        setIsGenerating(true);
 
-    return {
-        isGenerating: false,
-        generatePodcast: () => {}
+        props.setAudio('');
     }
+
+    return { isGenerating, generatePodcast}
 }
 
 const GeneratePodcast = (props: GeneratePodcastProps) => {
