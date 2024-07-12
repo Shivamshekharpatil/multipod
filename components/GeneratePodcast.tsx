@@ -5,13 +5,14 @@ import { Textarea } from './ui/textarea'
 import { Button } from './ui/button'
 import { Loader } from 'lucide-react'
 
-const useGeneratePodcast = (props: GeneratePodcastProps) => {
+const useGeneratePodcast = ({
+    setAudio, voiceType, voicePrompt, setAudioStorageId
+}: GeneratePodcastProps) => {
     const [isGenerating, setIsGenerating] = useState(false);
 
     const generatePodcast = async () => {
         setIsGenerating(true);
-
-        props.setAudio('');
+        setAudio('');
     }
 
     return { isGenerating, generatePodcast}
