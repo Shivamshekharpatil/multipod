@@ -89,7 +89,8 @@ const GeneratePodcast = (props: GeneratePodcastProps) => {
         <div className="mt-5 w-full max-w-[200px]">
         <Button type="submit" 
             className="text-16 bg-blue-500 
-            py-4 font-bold text-white-1 transition-all duration-500 hover:bg-black-1">
+            py-4 font-bold text-white-1 transition-all duration-500 hover:bg-black-1"
+            onClick={generatePodcast}>
               {isGenerating ? (
                 <>
                 
