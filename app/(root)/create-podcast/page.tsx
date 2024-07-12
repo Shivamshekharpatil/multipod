@@ -81,14 +81,11 @@ const CreatePodcast = () => {
           name="podcastTitle"
           render={({ field }) => (
             <FormItem className="flex flex-col gap-2.5">
-              <FormLabel className="text-16 font-bold text-white-1">Username</FormLabel>
+              <FormLabel className="text-16 font-bold text-white-1">Title</FormLabel>
               <FormControl>
-                <Input className="input-class focus-visible:ring-blue-500" 
+                <Input className="input-class focus-visible:ring-offset-blue-500" 
                 placeholder="MultipodAI Podcast" {...field} />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
               <FormMessage className="text-white-1" />
             </FormItem>
           )}
@@ -106,7 +103,7 @@ const CreatePodcast = () => {
             className="placeholder:text-gray-1" />
             </SelectTrigger>
           <SelectContent className="text-16 border-none bg-black-1 font-bold
-          text-white-1 focus:ring-blue-500">
+          text-white-1 focus-visible:ring-offset-blue-500">
             {voiceCategories.map((category) => (
               <SelectItem key={category} value={category} className="capitalize 
               focus:bg-blue-500">
@@ -131,7 +128,7 @@ const CreatePodcast = () => {
             <FormItem className="flex flex-col gap-2.5">
               <FormLabel className="text-16 font-bold text-white-1">Description</FormLabel>
               <FormControl>
-                <Textarea className="input-class focus-visible:ring-blue-500" 
+                <Textarea className="input-class focus-visible:ring-offset-blue-500" 
                 placeholder="Write a brief description of your podcast" {...field} />
               </FormControl>
               <FormDescription>
@@ -143,7 +140,15 @@ const CreatePodcast = () => {
         />
         </div>
         <div className="flex flex-col pt-10">
-          <GeneratePodcast />
+          <GeneratePodcast
+          setAudioStorageId={setAudioStorageId}
+          setAudio={setAudioUrl}
+          voiceType={setVoiceType}
+          audio={audioUrl}
+          voicePrompt={voicePrompt}
+          setVoicePrompt={setVoicePrompt}
+          setAudioDuration={setAudioDuration}
+          />
 
           <GenerateThumbnail />
 
