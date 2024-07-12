@@ -19,6 +19,8 @@ const useGeneratePodcast = ({
 
     const getPodcastAudio = useAction(api.openai.generateAudioAction)
 
+    const getAudioUrl = useMutation(api.podcast.getUrl);
+
     const generatePodcast = async () => {
         setIsGenerating(true);
         setAudio('');
@@ -42,7 +44,7 @@ const useGeneratePodcast = ({
             const storageId = (uploaded[0].response as any).storageId;
 
             setAudioStorageId(storageId);
-            
+
             const audioUrl = await getAudioUrl({ storageId });
         } catch (error) {
             console.log('Error generating podcast', error)
